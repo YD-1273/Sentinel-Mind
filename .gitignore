@@ -1,0 +1,10 @@
+sentinelmind-env/
+__pycache__/
+*.pyc
+.env
+*.db
+*.pt
+*.onnx
+data/authorized_faces/
+data/clips/
+.ipynb_checkpoints/
