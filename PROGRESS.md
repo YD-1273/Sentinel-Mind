@@ -1,5 +1,3 @@
-## Week 1
-
 ### [8/25/2026, 3:10 AM]
 **Phase:** 1 — Environment Setup & Core Vision Pipeline
 
@@ -27,5 +25,28 @@
 - Integrate DeepFace on detected person crops
 - Build small authorized-faces folder + compute embeddings
 - Implement Authorized/Unknown matching logic
+
+---
+
+### [8/28/2026, 3:18 AM]
+**Phase:** 1 — Environment Setup & Core Vision Pipeline (wrap-up) + dataset prep
+
+**Done:**
+- Decided to skip live-camera deployment for now; using pre-recorded datasets/video files instead (better fit for research/repeatable testing anyway)
+- Downloaded 3 datasets: ChokePoint (face-ID testing, ~354MB subset), PETS2009 (tracking, S2L1 clip), VIRAT (zone/intrusion, ~1.8GB)
+- Converted ChokePoint .pgm frame sequences to .mp4 using ffmpeg for use with cv2.VideoCapture
+- Fixed live_face_id script to process entire video (removed hardcoded 100-frame limit, now loops until video ends)
+- Ran full face-ID pipeline (YOLO + DeepFace) on real ChokePoint surveillance footage — detection worked on most frames, some misses due to lower image quality/resolution (expected, noted for evaluation chapter later)
+- Cleaned up .gitignore: added *.mp4, *.pt, *.swp/.swn/.swo, data/datasets/, data/test_clips/ — keeps datasets and generated videos out of git, only source code tracked
+- Removed accidentally-committed Vim swap files
+- Committed and pushed: gitignore cleanup, detect.py updates, new live_face.py
+
+**Issues hit:**
+- Webcam passthrough via usbipd remained unreliable (corrupted/partial frames) even after MJPG fix — decided not worth continuing to fight since project doesn't need live camera yet
+- ChokePoint dataset ships as raw .pgm frame sequences, not video files — required ffmpeg conversion step
+
+**Next:**
+- Test pipeline on PETS2009 and VIRAT clips too
+- Move into Phase 2: restricted zones + intrusion detection + ByteTrack loitering logic
 
 ---
