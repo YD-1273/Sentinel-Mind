@@ -3,7 +3,7 @@ from ultralytics import YOLO
 import time
 
 model = YOLO("yolov8n.pt")
-cap = cv2.VideoCapture("/mnt/d/Sentinel Mind/data/authorized_faces/Data 1.mp4")
+cap = cv2.VideoCapture(0)
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)

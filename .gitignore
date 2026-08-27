@@ -5,6 +5,12 @@ __pycache__/
 *.db
 *.pt
 *.onnx
+*.mp4
+*.swp
+*.swn
+*.swo
 data/authorized_faces/
 data/clips/
+data/datasets/
+data/test_clips/
 .ipynb_checkpoints/
